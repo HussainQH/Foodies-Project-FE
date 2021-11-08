@@ -1,6 +1,8 @@
 import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import SignUpModal from "./Signup";
+import SignInModal from "./Signin";
+import authStore from '../stores/authStore';
 
 
 
@@ -14,10 +16,13 @@ function NavBar() {
   >
     <Container>
       <Nav className="me-auto">
+    <p>   {authStore.user ?   authStore.user.username : "welcome guest" } </p>
+       
        (
           <>
-            
-            <SignUpModal />
+          <p>   {authStore.user ?   authStore.user.username : "welcome guest" } </p>
+            <SignUpModal /> 
+            <SignInModal />
           </>
         )
       </Nav>
