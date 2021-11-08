@@ -12,13 +12,17 @@ class AuthStore {
     setUser = (token) => {
       localStorage.setItem("myToken", token);
       api.defaults.headers.common.Authorization = `Bearer ${token}`;
+      console.log(decode(token))
       this.user = decode(token);
+      
     };
   
     signUp = async (userData) => {
       try {
+          console.log(userData)
         const res = await api.post("/signup", userData);
         localStorage.setItem("myToken", res.data.token);
+        console.log(res.data.token)
         this.setUser(res.data.token);
       } catch (error) {
         alert(error);
