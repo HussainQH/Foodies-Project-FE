@@ -1,11 +1,14 @@
-import './App.css';
+import "./App.css";
 
-import NavBar from './components/NavBar';
+import CuisineList from "./components/CuisineList";
+
+import NavBar from "./components/NavBar";
 function App() {
   return (
     <div className="App">
       <NavBar />
-     <h1>Test</h1>
+      <CuisineList />
+      <h1>Test</h1>
     </div>
   );
 }
