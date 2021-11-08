@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import authStore from "../stores/authStore";
 import { Modal, Button, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 function SignUpModal() {
@@ -13,7 +14,7 @@ function SignUpModal() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-  //  authStore.signUp(user);
+    authStore.signUp(user);
   };
 
   const [show, setShow] = useState(false);
@@ -33,18 +34,6 @@ function SignUpModal() {
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                placeholder="Enter email"
-                onChange={handleChange}
-              />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
-            </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicUsername">
               <Form.Label>Username</Form.Label>
               <Form.Control
