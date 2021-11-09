@@ -22,6 +22,7 @@ class CuisineStore {
     }
   };
 
+  // REVIEW: You're fetching all cuisines, it should be fetchCuisines
   fetchCuisine = async () => {
     try {
       const response = await api.get("/cuisines");
