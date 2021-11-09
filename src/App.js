@@ -9,6 +9,16 @@ import NavBar from "./components/NavBar";
 import authStore from './stores/authStore';
 
 
+import NavBar from './components/NavBar';
+
+function App() {
+	return (
+		<div className="App">
+			<NavBar />
+		</div>
+	);
+
+
 import userEvent from '@testing-library/user-event';
 
 function App() {
@@ -23,6 +33,7 @@ function App() {
 
     </div>
   );
+
 }
 
 export default App;
