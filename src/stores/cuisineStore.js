@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import api from "./api";
+import FormData from "form-data";
 
 class CuisineStore {
   constructor() {
@@ -12,10 +13,7 @@ class CuisineStore {
     try {
       const formData = new FormData();
       for (const key in newCuisine) formData.append(key, newCuisine[key]);
-      const res = await api.post(
-        "http://localhost:8000/api/Cuisines",
-        formData
-      );
+      const res = await api.post("/cuisines", formData);
       this.cuisines.push(res.data);
     } catch (error) {
       console.log(error);

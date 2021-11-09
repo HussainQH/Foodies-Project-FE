@@ -1,6 +1,9 @@
+import Button from "@restart/ui/esm/Button";
 import { observer } from "mobx-react";
 import React from "react";
+import { Row } from "react-bootstrap";
 import cuisineStore from "../stores/cuisineStore";
+import AddCuisineModal from "./AddCuisineModal";
 import CuisineCard from "./CuisineCard";
 
 function CuisineList() {
@@ -8,7 +11,12 @@ function CuisineList() {
     <CuisineCard cuisine={cuisine} />
   ));
 
-  return <div>{cuisineList}</div>;
+  return (
+    <div>
+      <AddCuisineModal />
+      <Row> {cuisineList} </Row>
+    </div>
+  );
 }
 
 export default observer(CuisineList);
