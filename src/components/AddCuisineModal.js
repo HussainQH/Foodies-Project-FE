@@ -29,7 +29,7 @@ function AddCuisineModal() {
   };
 
   const handleImage = (event) =>
-    setCuisine({ ...cuisine, image: [event.target.files[0]] });
+    setCuisine({ ...cuisine, image: event.target.files[0] });
 
   return (
     <div>
