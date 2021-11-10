@@ -1,3 +1,4 @@
+
 import './App.css';
 import CuisineList from './components/CuisineList';
 import NavBar from './components/NavBar';
@@ -16,6 +17,7 @@ function App() {
 			<CuisineList />
 		</div>
 	);
+
 }
 
 export default App;

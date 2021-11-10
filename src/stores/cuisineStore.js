@@ -20,7 +20,7 @@ class CuisineStore {
     }
   };
 
-  fetchCuisine = async () => {
+  fetchCuisines = async () => {
     try {
       const response = await api.get("/cuisines");
       this.cuisines = response.data;
@@ -31,5 +31,5 @@ class CuisineStore {
 }
 
 const cuisineStore = new CuisineStore();
-cuisineStore.fetchCuisine();
+cuisineStore.fetchCuisines();
 export default cuisineStore;
