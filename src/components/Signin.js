@@ -24,9 +24,9 @@ function SignInModal() {
 
 	return (
 		<div>
-			<Button variant="light" onClick={handleShow}>
+			<a class="active" onClick={handleShow}>
 				Signin
-			</Button>
+			</a>
 
 			<Modal show={show} onHide={handleClose}>
 				<Modal.Header closeButton>
