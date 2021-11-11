@@ -5,6 +5,7 @@ import { Row } from "react-bootstrap";
 import cuisineStore from "../stores/cuisineStore";
 import AddCuisineModal from "./AddCuisineModal";
 import CuisineCard from "./CuisineCard";
+import RecipeList from "./RecipeList";
 
 function CuisineList() {
   const cuisineList = cuisineStore.cuisines.map((cuisine) => (
@@ -14,7 +15,7 @@ function CuisineList() {
   return (
     <div>
       <AddCuisineModal />
-      <Row> {cuisineList} </Row>
+      <div className="grid"> {cuisineList} </div>
     </div>
   );
 }

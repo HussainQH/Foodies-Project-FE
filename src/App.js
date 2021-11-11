@@ -1,23 +1,25 @@
+import "./App.css";
+import CuisineList from "./components/CuisineList";
+import RecipeList from "./components/RecipeList";
+import NavBar from "./components/NavBar";
+import { Routes, Route } from "react-router-dom";
+import RecipeCard from "./components/RecipeCard";
 
-import './App.css';
-import CuisineList from './components/CuisineList';
-import NavBar from './components/NavBar';
-import { Routes, Route } from 'react-router-dom';
-import Signin from './components/Signin';
-import Signup from './components/Signup';
-import { Navbar } from 'react-bootstrap';
 function App() {
-	return (
-		<div className="App">
-			<NavBar />
-			<Routes>
-				<Route path="/signin" element={<Signin />} />
-				<Route path="/signup" element={<Signup />} />
-			</Routes>
-			<CuisineList />
-		</div>
-	);
+  return (
+    <div className="App">
+      <NavBar />
 
+      <Routes>
+        <Route path="/" element={<CuisineList />} />
+        <Route path="/:cuisineSlug/recipes" element={<RecipeList />}></Route>
+        <Route
+          path="/:cuisineSlug/recipes/:recipesSlug"
+          element={<RecipeCard />}
+        ></Route>
+      </Routes>
+    </div>
+  );
 }
 
 export default App;

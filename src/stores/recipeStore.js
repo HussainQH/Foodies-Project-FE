@@ -9,11 +9,11 @@ class RecipeStore {
 
   recipes = [];
 
-  createRecipe = async (newRecipe) => {
+  createRecipe = async (newRecipe, cuisineId) => {
     try {
       const formData = new FormData();
       for (const key in newRecipe) formData.append(key, newRecipe[key]);
-      const res = await api.post("/recipes", formData);
+      const res = await api.post(`/cuisines/${cuisineId}/recipes`, formData);
       this.recipes.push(res.data);
     } catch (error) {
       console.log(error);

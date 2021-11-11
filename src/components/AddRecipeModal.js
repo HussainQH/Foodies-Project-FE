@@ -6,11 +6,11 @@ import {
   ModalBody,
   Button,
 } from "react-bootstrap";
-import cuisineStore from "../stores/cuisineStore";
+import recipeStore from "../stores/recipeStore";
 
-function AddCuisineModal() {
+function AddRecipeModal({ cuisineId }) {
   const [show, setShow] = useState(false);
-  const [cuisine, setCuisine] = useState({
+  const [recipe, setRecipe] = useState({
     name: "",
     image: "",
     description: "",
@@ -20,35 +20,32 @@ function AddCuisineModal() {
   const handleShow = () => setShow(true);
 
   const handleChange = (event) =>
-    setCuisine({ ...cuisine, [event.target.name]: [event.target.value] });
+    setRecipe({ ...recipe, [event.target.name]: [event.target.value] });
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    cuisineStore.createCuisine(cuisine);
+    recipeStore.createRecipe(recipe, cuisineId);
     handleClose();
   };
 
   const handleImage = (event) =>
-    setCuisine({ ...cuisine, image: event.target.files[0] });
+    setRecipe({ ...recipe, image: event.target.files[0] });
 
   return (
     <div>
-      <button className="active" onClick={handleShow}>
-        Add Your Favorite Cuisine
-      </button>
-
+      <Button onClick={handleShow}>ADD</Button>
       <Modal show={show} onhide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Cuisine</Modal.Title>
+          <Modal.Title>Add Recipe</Modal.Title>
         </Modal.Header>
         <ModalBody>
           <form onSubmit={handleSubmit}>
             <InputGroup>
-              <InputGroup.Text>Cuisine Name</InputGroup.Text>
+              <InputGroup.Text>Recipe Name</InputGroup.Text>
               <FormControl
-                placeholder="Cuisine name"
+                placeholder="Recipe name"
                 name="name"
-                value={cuisine.name}
+                value={recipe.name}
                 type="text"
                 onChange={handleChange}
               />
@@ -59,16 +56,16 @@ function AddCuisineModal() {
               <FormControl
                 type="file"
                 onChange={handleImage}
-                placeholder="Cuisine Image"
+                placeholder="Recipe Image"
               />
             </InputGroup>
             <br />
             <InputGroup>
-              <InputGroup.Text>Cuisine Description</InputGroup.Text>
+              <InputGroup.Text>Recipe Description</InputGroup.Text>
               <FormControl
-                placeholder="Cuisine Description"
+                placeholder="Recipe Description"
                 name="description"
-                value={cuisine.description}
+                value={recipe.description}
                 type="text"
                 onChange={handleChange}
               />
@@ -81,4 +78,4 @@ function AddCuisineModal() {
     </div>
   );
 }
-export default AddCuisineModal;
+export default AddRecipeModal;
